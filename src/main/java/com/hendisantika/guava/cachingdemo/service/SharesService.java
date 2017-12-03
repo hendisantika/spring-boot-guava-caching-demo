@@ -22,6 +22,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class SharesService {
     private static Logger LOGGER = LoggerFactory.getLogger(SharesService.class);
+
     @Autowired
     StockExchange exchange;
 
