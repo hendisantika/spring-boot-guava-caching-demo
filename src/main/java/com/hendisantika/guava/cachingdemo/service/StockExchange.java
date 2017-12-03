@@ -1,5 +1,6 @@
 package com.hendisantika.guava.cachingdemo.service;
 
+import com.hendisantika.guava.cachingdemo.entity.RotatingValue;
 import com.hendisantika.guava.cachingdemo.entity.Shares;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
