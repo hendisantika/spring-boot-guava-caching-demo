@@ -1,10 +1,10 @@
 package com.hendisantika.guava.cachingdemo.service;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.mockito.Mockito.verify;
 
@@ -19,8 +19,8 @@ import static org.mockito.Mockito.verify;
  * To change this template use File | Settings | File Templates.
  */
 
-@RunWith(MockitoJUnitRunner.class)
-public class TemperatureServiceTest {
+@ExtendWith(MockitoExtension.class)
+class TemperatureServiceTest {
     @Mock
     WeatherStation weatherStation;
 
@@ -28,7 +28,7 @@ public class TemperatureServiceTest {
     TemperatureService service;
 
     @Test
-    public void testInvalidValues() {
+    void testInvalidValues() {
         service.getTemperatureForCoordinate(12);
         verify(weatherStation).getForCoordinate(12);
     }

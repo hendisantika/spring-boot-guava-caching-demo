@@ -1,11 +1,11 @@
 package com.hendisantika.guava.cachingdemo.service;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.assertj.core.api.Java6Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Created by IntelliJ IDEA.
@@ -18,13 +18,13 @@ import static org.assertj.core.api.Java6Assertions.assertThat;
  * To change this template use File | Settings | File Templates.
  */
 
-@RunWith(MockitoJUnitRunner.class)
-public class WeatherStationTest {
+@ExtendWith(MockitoExtension.class)
+class WeatherStationTest {
     @InjectMocks
     WeatherStation station;
 
     @Test
-    public void testIncrements() {
+    void testIncrements() {
         station.init();
         float previous = 0;
         for (int i = 0; i < 1000; i++) {

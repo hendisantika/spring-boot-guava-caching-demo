@@ -3,9 +3,10 @@ package com.hendisantika.guava.cachingdemo.service;
 import com.hendisantika.guava.cachingdemo.entity.RotatingValue;
 import com.hendisantika.guava.cachingdemo.entity.Shares;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,6 +31,7 @@ public class StockExchange {
             shares.put(share.name(), new RotatingValue());
     }
 
+    @Lazy
     @Autowired
     SharesService sharesService;
 

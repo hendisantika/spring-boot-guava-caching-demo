@@ -1,11 +1,11 @@
 package com.hendisantika.guava.cachingdemo.service;
 
 import com.hendisantika.guava.cachingdemo.repository.PostcodeRepo;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.mockito.Mockito.verify;
 
@@ -20,8 +20,8 @@ import static org.mockito.Mockito.verify;
  * To change this template use File | Settings | File Templates.
  */
 
-@RunWith(MockitoJUnitRunner.class)
-public class PostcodeServiceTest {
+@ExtendWith(MockitoExtension.class)
+class PostcodeServiceTest {
 
     @InjectMocks
     PostcodeService service;
@@ -30,7 +30,7 @@ public class PostcodeServiceTest {
     PostcodeRepo postcodeRepo;
 
     @Test
-    public void getPostCodeQueriesDao() {
+    void getPostCodeQueriesDao() {
         service.getPostcode("5941ED");
         verify(postcodeRepo).findByCode("5941ED");
     }

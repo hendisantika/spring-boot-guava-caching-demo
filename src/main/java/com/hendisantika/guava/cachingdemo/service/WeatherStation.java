@@ -3,7 +3,7 @@ package com.hendisantika.guava.cachingdemo.service;
 import com.hendisantika.guava.cachingdemo.entity.RotatingValue;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
 import java.util.HashMap;
 import java.util.Map;
 

@@ -5,13 +5,11 @@ import com.hendisantika.guava.cachingdemo.config.CacheConfig;
 import com.hendisantika.guava.cachingdemo.entity.Shares;
 import com.hendisantika.guava.cachingdemo.service.SharesService;
 import com.hendisantika.guava.cachingdemo.service.StockExchange;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.cache.CacheManager;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -27,9 +25,8 @@ import static org.assertj.core.api.Assertions.assertThat;
  * To change this template use File | Settings | File Templates.
  */
 
-@RunWith(SpringRunner.class)
 @SpringBootTest
-public class SharesIntegrationTest {
+class SharesIntegrationTest {
     @Autowired
     CacheManager cacheManager;
     Cache sharesCache;
@@ -40,13 +37,13 @@ public class SharesIntegrationTest {
     @Autowired
     StockExchange stockExchange;
 
-    @Before
-    public void setup() {
+    @BeforeEach
+    void setup() {
         sharesCache = getAndInvalidate(CacheConfig.SHARES_CACHE);
     }
 
     @Test
-    public void testShares() {
+    void testShares() {
         float value = sharesService.getValue(Shares.AKZO.name());
         assertThat(sharesCache.asMap()).containsKey("AKZO");
         //retrieves from cache:
